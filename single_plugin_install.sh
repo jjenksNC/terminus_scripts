@@ -22,9 +22,9 @@ error_exit()
 
 if terminus connection:set $siteName.dev sftp; then
 	terminus remote:wp $siteName.dev -- plugin install $pluginName
-        terminus env:commit $siteName.dev --note "installing $pluginName"
-	terminus env:deploy $siteName.test --message "deploying $pluginName"
-	terminus env:deploy $siteName.live -- message "deploying $pluginName"
+        terminus env:commit $siteName.dev --message "installing $pluginName"
+	terminus env:deploy $siteName.test --note "deploying $pluginName"
+	terminus env:deploy $siteName.live --note "deploying $pluginName"
 	terminus remote:wp $siteName.dev -- plugin activate $pluginName
 	terminus remote:wp $siteName.test -- plugin activate $pluginName
 else 
